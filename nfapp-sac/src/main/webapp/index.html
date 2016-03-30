@@ -1,72 +1,19 @@
-<!DOCTYPE HTML>
 <html>
-    <head>
-         <title>NForce IT NFgateway Tutorial</title>
-    </head>
+<head>
+<title>Tony</title>
+<!-- 1. Load libraries -->
+<!-- IE required polyfill -->
+<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+<script src="node_modules/rxjs/bundles/Rx.umd.js"></script>
+<script src="node_modules/angular2/bundles/angular2-all.umd.js"></script>
+<!-- 2. Load our 'modules' -->
+<script src='app/app.component.js'></script>
+<script src='app/main.js'></script>
+</head>
+<!-- 3. Display the application -->
 <body>
-        <!-- Guacamole -->
-        <script type="text/javascript"
-            src="guacamole-common-js/all.min.js"></script>
-
-        <!-- Display -->
-        <div id="display"></div>
-
-        <!-- Init -->
-        <script type="text/javascript"> /* <![CDATA[ */
-
-            // Get display div from document
-            var display = document.getElementById("display");
-
-            // Instantiate client, using an HTTP tunnel for communications.
-            var guac = new Guacamole.Client(
-                new Guacamole.HTTPTunnel("tunnel")
-            );
-
-            // Add client to display div
-            display.appendChild(guac.getDisplay().getElement());
-            
-            // Error handler
-            guac.onerror = function(error) {
-                alert(error);
-            };
-
-            // Connect
-            guac.connect();
-
-            // Disconnect on close
-            window.onunload = function() {
-                guac.disconnect();
-            }
-
-        /* ]]> */ </script>
-
-        <!-- Init -->
-        <script type="text/javascript"> /* <![CDATA[ */
-
-            // Mouse
-            var mouse = new Guacamole.Mouse(guac.getDisplay().getElement());
-
-            mouse.onmousedown = 
-            mouse.onmouseup   =
-            mouse.onmousemove = function(mouseState) {
-                guac.sendMouseState(mouseState);
-            };
-
-            // Keyboard
-            var keyboard = new Guacamole.Keyboard(document);
-
-            keyboard.onkeydown = function (keysym) {
-                guac.sendKeyEvent(1, keysym);
-            };
-
-            keyboard.onkeyup = function (keysym) {
-                guac.sendKeyEvent(0, keysym);
-            };
-
-        /* ]]> */ </script>
-
-
-
-     <p>NForce IT - NFgateway Tutorial</p>
+<my-app>Loading...</my-app>
 </body>
 </html>
